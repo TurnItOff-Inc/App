@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Timer</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+
+<body>
+    
+    <h1>Timer</h1>
+    <hr />
+    <div ng-app="dropApp" ng-controller="dropController">
+        <label>Select site for which you want to set the timer</label><br />
+        <select name="siteSelect" ng-model="selectedName" ng-options="x for x in names">
+            
+        </select>
+    </div>
+
+    <script>
+        var app = angular.module('dropApp', []);
+        app.controller('dropController',function($scope){
+            $scope.names = ["Facebook", "Twitter", "Tumblr", "Instagram"];
+        });
+    </script>
+    <br />
+    <form>
+        Input Timer (0-60 mins):
+        <input type="number" min="0" max="60"/>
+    </form>
+    </body>
+</html>
