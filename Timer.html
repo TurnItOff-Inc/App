@@ -13,7 +13,7 @@
     <hr />
     <div ng-app="dropApp" ng-controller="dropController">
         <label>Select site for which you want to set the timer</label><br />
-        <select name="siteSelect" ng-model="selectedName" ng-options="x for x in names">
+        <select id ="siteSelect" name="siteSelect" ng-model="selectedName" ng-options="x for x in names">
             
         </select>
     </div>
@@ -27,15 +27,14 @@
     <script>
         function myFunction() {
             var x;
-            if(confirm("Would you like to set a timer for " + document.getElementById(time)) == true)
+            if(confirm("Would you like to set a timer on " + document.getElementById("siteSelect").value +" for " + document.getElementById("time").value + " minute(s)?") == true)
             {
-                x = "You set a timer.";
+                alert("You set a timer.");
             }
             else
             {
-                x = "You did not set a timer.";
+                alert("You did not set a timer.");
             }
-            document.getElementById("confirmation").innerHTML = x;
         }
     </script>
     <br />
@@ -44,7 +43,6 @@
         Input Timer (0-60 mins):
         <input type="number" min="0" max="60" id="time"/>
         <button type="submit" id ="sub" onclick="myFunction()">Submit</button>
-        <p id="confirmation"></p>
         <br />
     </form>
     </body>
