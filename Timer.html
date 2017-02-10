@@ -24,10 +24,38 @@
             $scope.names = ["Facebook", "Twitter", "Tumblr", "Instagram"];
         });
     </script>
+    <script>
+        function myFunction() {
+            var x;
+            if(confirm("Would you like to set a timer for " + document.getElementById(time)) == true)
+            {
+                x = "You set a timer.";
+            }
+            else
+            {
+                x = "You did not set a timer.";
+            }
+            document.getElementById("confirmation").innerHTML = x;
+        }
+    </script>
     <br />
     <form>
+        <br />
         Input Timer (0-60 mins):
-        <input type="number" min="0" max="60"/>
+        <input type="number" min="0" max="60" id="time"/>
+        <button type="submit" id ="sub" onclick="myFunction()">Submit</button>
+        <p id="confirmation"></p>
+        <br />
     </form>
     </body>
+<style>
+    body{
+        background-color: lightcyan;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    form{
+        background-color: honeydew;
+        color: blueviolet;
+    }
+</style>
 </html>
