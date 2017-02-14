@@ -30,26 +30,176 @@
             $scope.names = ["Facebook", "Twitter", "Tumblr", "Instagram"];
         });
     </script>
-    <script>
-        function myFunction() {
-            var x;
-            if(confirm("Would you like to set a timer on " + document.getElementById("siteSelect").value +" for " + document.getElementById("time").value + " minute(s)?") == true)
-            {
-                alert("You set a timer.");
-            }
-            else
-            {
-                alert("You did not set a timer.");
-            }
-        }
-    </script>
     <br />
-    <form>
-        <br />
-        Input Timer (0-60 mins):
+    
+        <p>Input Timer (0-60 mins): </p>
         <input type="number" min="0" max="60" id="time"/>
-        <button type="submit" id ="sub" onclick="myFunction()">Submit</button>
-        <br />
-    </form>
+        
+
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn">Submit</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Confirm Timer</h2>
+            </div>
+            <div class="modal-body">
+                <div id="modalstuff">
+                    <div id="regularstuff">
+                <p id="confirmation-text">Are you sure you want to set a timer?</p>
+                <button id="submit">Yes</button>
+                <button id="cancel">No</button>
+                    </div>
+
+                    </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+var sub = document.getElementById('submit');
+
+var can = document.getElementById("cancel");
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+
+}
+
+sub.onclick = function(){
+
+    document.getElementById("modalstuff").innerHTML = "Submitted";
+}
+
+can.onclick = function () {
+
+    modal.style.display = "none";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+
+    document.getElementById("modalstuff").innerHTML = document.getElementById("regular stuff").innerHTML;
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+
+    document.getElementById("modalstuff").innerHTML = document.getElementById("regular stuff").innerHTML;
+}
+</script>
+
+
+
+
+
     </body>
 </html>
+
+<style>
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        position: relative;
+        background-color: #fefefe;
+        margin: auto;
+        padding: 0;
+        border: 1px solid #888;
+        width: 80%;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        -webkit-animation-name: animatetop;
+        -webkit-animation-duration: 0.4s;
+        animation-name: animatetop;
+        animation-duration: 0.4s;
+    }
+
+    /* Add Animation */
+    @-webkit-keyframes animatetop {
+        from {
+            top: -300px;
+            opacity: 0;
+        }
+
+        to {
+            top: 0;
+            opacity: 1;
+        }
+    }
+
+    @keyframes animatetop {
+        from {
+            top: -300px;
+            opacity: 0;
+        }
+
+        to {
+            top: 0;
+            opacity: 1;
+        }
+    }
+
+    /* The Close Button */
+    .close {
+        color: white;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+    .modal-header {
+        padding: 2px 16px;
+        background-color: #5cb85c;
+        color: white;
+    }
+
+    .modal-body {
+        padding: 2px 16px;
+    }
+
+    .modal-footer {
+        padding: 2px 16px;
+        background-color: #5cb85c;
+        color: white;
+    }
+</style>
