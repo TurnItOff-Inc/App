@@ -4,54 +4,68 @@
   <meta charset="UTF-8">
   <title>Home Page</title>
       <link rel="stylesheet" href="BaseStyle.css" />
-    <link rel="stylesheet" href="home-page/css/style.css" />
+    <link rel="stylesheet" href="index2.css" />
 </head>
 
 <body>
     <header>TurnItOff Inc.</header>
     <ul>
-        <li class="dropdown">
-            <a href="#" class="dropbtn">Goals</a>
-            <div class="dropdown-content">
+        <li>
+            <a href="#" class="dropbtn">Track</a>
+            <!---><div class="dropdown-content">
                 <a href="#">View Goals</a>
                 <a href="#">Set Goals</a>
-            </div>
+            </div></!--->
         </li>
-        <li class="dropdown">
-            <a href="#" class="dropbtn">Tools</a>
-            <div class="dropdown-content">
+        <li>
+            <a href="Blacklist.html" class="dropbtn">Blacklist</a>
+            <!--><div class="dropdown-content">
                 <a href="Select Website to block/Prototype.html">Edit Blocked List</a>
                 <a href="Timer.html">Create Timer</a>
                 <a href="">Set Deadlines</a>
-            </div>
+            </div></!-->
         </li>
         <li style="float:right"><a href="javascript:window.open('Help.html', 'Help', 'width=500,height=500');">Help</a></li>
     </ul>
 
     <h1>Social Media Overview</h1>
     <hr />
+    <table>
+        <tr>
+            <th>Website</th>
+            <th>% Change</th>
+            <th><a href="javascript:window.open('Timer.html', 'Timer', 'width=500,height=600');" style="text-decoration:underline">Timer</a></th>
+        </tr>
+        <tr>
+            <td style="text-align:left">
+                <a href="">1. Facebook</a>
+            </td>
+            <td>25%</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">
+                <a href="">2. Twitter</a>
+            </td>
+            <td>10%</td>
+            <td>
+                --
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left">
+                <a href="">3. Instagram</a>
+            </td>
+            <td>94%</td>
+            <td>
+                --
+            </td>
+        </tr>
+    </table>
 
-    <h2>
-      <span>Site</span>
-      <span id="change">% Change from Last Week</span>
-    </h2>
-    <p>
-      <div id="smallText">
-        <span>1. Facebook</span>
-        <span id=percentages>% increase</span>
-        <button id="detailbuttons">View Details</button>
-    </div>
-      <div id="smallText">
-        <span>2. Twitter</span>
-        <span id="percentages">% increase</span>
-        <button id="detailbuttons">View Details</button>
-    </div>
-    <div id="smallText">
-        <span>3. Instagram</span>
-        <span id="insta">% increase</span>
-        <button id="detailbuttons">View Details</button>
-    </div>
-  
+        <div class="footer">
+            <h4>TurnItOff Inc.</h4>
+        </div>
     <script src="home-page/js/index.js"></script>
 </body>
 </html>
