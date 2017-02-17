@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="BaseStyle.css" />
+    <title>Help</title>
+</head>
+<body>
+    <header>TurnItOff Inc.</header>
+    <h1>FAQs</h1>
+    <hr />
+
+    <button class="accordion">What is TurnItOff?</button>
+        <div class="panel">
+            <p>A web-based platform designed to help you control and track social media habits.</p>
+        </div>
+    <button class="accordion">What can I track?</button>
+        <div class="panel">
+            <p>You can track anything. From time spent on the app to number of posts.</p>
+        </div>
+    <button class="accordion">How do I track something?</button>
+        <div class="panel">
+            <p>Go to the Tracker page and choose "Set New Track". Fill in the requested information. You can also
+            set personal goals for this tracked behavior and see your progress on the page.</p>
+        </div>
+    <button class="accordion">What is the timer and how does it work?</button>
+        <div class="panel">
+            <p>The timer is a tool you can use to limit your time spent on social media. Once a timer has been set, it will countdown when the selected site has been opened. As the timer approached zero, a notification will pop
+            up indicating your time is almost up. When the timer runs out, you can set it so that it will close the site automatically.</p>
+        </div>
+    <script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].onclick = function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+  	  panel.style.maxHeight = null;
+    } else {
+  	  panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  }
+}
+    </script>
+</body>
+
+
+</html>
+
+
+
+<style>
+    p{
+        text-align: center;
+    }
+    button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 20px;
+    transition: 0.4s;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: #ddd;
+}
+
+button.accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+button.accordion.active:after {
+    content: "\2212";
+}
+
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+</style>
