@@ -12,7 +12,7 @@
     <header>TurnItOff Inc.</header>
     <ul>
         <li><a href="home-page/index.html">Home</a></li>
-        <li style="float:right"><a href="#Help">Help</a></li>
+        <li style="float:right"><a href="javascript:window.open('Help.html', 'Help', 'width=500,height=500');">Help</a></li>
     </ul>
     
     <h1>Timer</h1>
@@ -30,15 +30,20 @@
             $scope.names = ["Facebook", "Twitter", "Tumblr", "Instagram"];
         });
     </script>
-    <br />
-    
+   
         <p>Input Timer (0-60 mins): </p>
         <input type="number" min="0" max="60" id="time"/>
-        
-
+    <br />
+    
+    <br />
+    <form>
+        <input type="checkbox" name="closeSite" value="closeSite">Close the site when timer ends<br />
+    </form>
+    <br />
     <!-- Trigger/Open The Modal -->
     <button id="myBtn">Submit</button>
-
+    
+    
     <!-- The Modal -->
     <div id="myModal" class="modal">
 
