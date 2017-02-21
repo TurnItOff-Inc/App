@@ -1,5 +1,5 @@
 ﻿body{
-        background-color: darkgrey;
+        background-color: #a6acaf;
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
 header {
@@ -8,6 +8,7 @@ header {
     text-align: center;
     color: ghostwhite;
     background-color: black;
+    width: 100%;
 }
 
 
@@ -26,6 +27,7 @@ header {
 h1{
     font-family: 'Footlight MT';
     text-align:center;
+    color: #FFFFFA;
 }
 
 h2{
@@ -38,6 +40,7 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: #333;
+    width:100%;
 }
 
 li {
@@ -81,4 +84,42 @@ li.dropdown {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #f0f3f4;
+    font-size: 20px;
+}
+
+td, th {
+    text-align: left;
+    padding: 10px;
+}
+
+td a{
+    color: black;
+    text-decoration: none;
+}
+
+th a{
+    color: black;
+}
+
+td a:hover, th a:hover{
+    color: #186A3B;
+}
+
+tr:nth-child(even) {
+    background-color: #d4e6f1;
+}
+
+.tablebtn{
+    text-align:center;
+    font-size:16px;
+    border: none;
+    display:inline-block;
+
 }
