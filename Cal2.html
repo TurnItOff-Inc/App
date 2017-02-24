@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel= "stylesheet" href="BaseStyle.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Calendar</title>
+</head>
+<body>
+
+    <header><img src="logo.png" height="50" /></header>
+    <ul>
+        <li style="float:left"><a href="index.html">Home</a></li>
+        <li style="float:right"><a href="javascript:window.open('Help.html', 'Help', 'width=500,height=500');">Help</a></li>
+    </ul>
+    <div id="container">
+        <div id="one">
+            <div id="oneA">
+                <h3>Create New Deadline</h3>
+                <hr />
+                <div id="eventForm">
+                    <p id="date">Choose Date</p>
+                    Event Name:
+                    <br />
+                    <input id="eventName" type="text" />
+                    <br />
+                    Description:
+                    <br />
+                    <input id ="eventDescription" type="text" />
+                    <br /><br />
+                    <button onclick="closeClear()">Add Event <i class="fa fa-plus-square"></i></button>
+                </div>
+                <br />
+            </div>
+            
+            <br />
+            
+            <div id="oneB">
+                <h3>Current Deadlines</h3>
+                <hr />
+            </div>
+        </div>
+        <div id="two">
+            <div id="content">
+                <div class="month">
+                    <ul>
+                        <li class="prev"><a href="#"><i class="fa fa-arrow-left"></i></a></li>
+                        <li class="next"><a href="#"><i class="fa fa-arrow-right"></i></a></li>
+                        <li style="text-align:center">
+                            March<br>
+                            <span style="font-size:18px">2017</span>
+                        </li>
+                    </ul>
+
+
+                </div>
+                <ul class="weekdays">
+                    <li>Sun</li>
+                    <li>Mon</li>
+                    <li>Tues</li>
+                    <li>Wed</li>
+                    <li>Thur</li>
+                    <li>Fri</li>
+                    <li>Sat</li>
+
+                </ul>
+                <ul id="daylist" class="days">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        doOnce.done = false;
+        doOnce();
+        function doOnce() {
+            if (!doOnce.done) {
+                var div = document.getElementById('daylist');
+                for (i = 1; i < 32; i++)
+                    div.innerHTML += '<li>' + i + '<button id="' + i + '" onclick="addEvent(' + i + ')"></button></li>';
+                div.innerHTML += '<li></li>';
+                doOnce.done = true;
+            }
+
+        }
+    </script>
+    
+    <script>
+        var n;
+        var nam;
+        function addEvent(num) {
+
+            document.getElementById("eventForm").style.display = "inline-block";
+            document.getElementById("date").innerHTML = "March " + num + ", 2017";
+            n = num;
+        }
+
+        function closeClear() {
+            
+            nam = document.getElementById("eventName").value;
+
+            document.getElementById(n).innerHTML += nam;
+            document.getElementById("eventName").value = "";
+            document.getElementById("eventDescription").value = "";
+        }
+    </script>
+</body>
+</html>
+
+<style>
+    * {
+            box-sizing: border-box;
+        }
+
+    ul {
+        list-style-type: none;
+        text-align:center;
+    }
+
+    form{
+
+    }
+
+    body {
+        font-family: Verdana,sans-serif;
+    }
+
+    #container{
+        width:100%;
+    }
+
+    #one{
+        padding:5px;
+        width: 20%;
+        float:left;
+    }
+
+    #oneA{
+        border:ridge;
+    }
+    #oneB{
+        border:ridge;
+    }
+    #two{
+        float:left;
+        width:80%;
+    }
+
+    #content {
+        width: 100%;
+        padding:5px;
+    }
+
+    .month {
+            padding: 70px 25px;
+            width: 100%;
+            background: #1abc9c;
+        }
+
+            .month ul {
+                margin: 0;
+                padding: 0;
+                background-color: #1abc9c;
+            }
+
+        .month li a:hover {
+            background-color: darkslateblue;
+        }
+
+                .month ul li {
+                    color: white;
+                    font-size: 20px;
+                    text-transform: uppercase;
+                    letter-spacing: 3px;
+                }
+
+            .month .prev {
+                float: left;
+                padding-top: 10px;
+            }
+
+            .month .next {
+                float: right;
+                padding-top: 10px;
+            }
+
+    .weekdays {
+        margin: 0;
+        padding: 10px 0;
+        background-color: #ddd;
+    }
+
+        .weekdays li {
+            display: inline-block;
+            width: 13.6%;
+            color: #666;
+            text-align: center;
+        }
+
+    .days {
+            padding: 1px 0;
+            margin: 0;
+
+        }
+
+        .days button {
+            background: transparent;
+            border: none !important;
+            align-content:center;
+            height: 70%;
+            width:100%;
+        }
+        .days button:hover{
+            background-color: lightblue; 
+            cursor: pointer;
+
+        }
+
+        .days ul{
+            background-color: white;
+        }
+        .days li {
+            list-style-type: none;
+            display: inline-block;
+            text-align: right;
+            font-size: 16px;
+            color: #777;
+            float: left;
+            border: 1px solid black;
+            width: 14.28%;
+            height: 85px;
+            padding: 5px;
+            background-color: whitesmoke;
+        }
+
+                .days li .active {
+                    padding: 5px;
+                    background: #1abc9c;
+                    color: white !important;
+                }
+
+    
+</style>
