@@ -13,6 +13,12 @@
     <header><img src="logo.png" height="50" /></header>
     <ul>
         <li style="float:left"><a href="index.html">Home</a></li>
+        <li style="float:left">
+            <a href="#" class="dropbtn">Track</a>
+        </li>
+        <li style="float:left">
+            <a href="Blacklist.html" class="dropbtn">Blacklist</a>
+        </li>
         <li style="float:right"><a href="javascript:window.open('Help.html', 'Help', 'width=500,height=500');">Help</a></li>
     </ul>
     <div id="container">
@@ -21,7 +27,7 @@
                 <h3>Create New Deadline</h3>
                 <hr />
                 <div id="eventForm">
-                    <p id="date">Choose Date</p>
+                    <p id="date">Click the Calendar to choose a date</p>
                     Event Name:
                     <br />
                     <input id="eventName" type="text" />
@@ -95,16 +101,19 @@
         var nam;
         function addEvent(num) {
 
-            document.getElementById("eventForm").style.display = "inline-block";
             document.getElementById("date").innerHTML = "March " + num + ", 2017";
             n = num;
+
+            
         }
 
         function closeClear() {
             
             nam = document.getElementById("eventName").value;
 
-            document.getElementById(n).innerHTML += nam;
+            document.getElementById("oneB").innerHTML += nam + '<br />';
+
+            document.getElementById(n).innerHTML += nam + '<br />';
             document.getElementById("eventName").value = "";
             document.getElementById("eventDescription").value = "";
         }
@@ -157,7 +166,7 @@
     }
 
     .month {
-            padding: 70px 25px;
+            padding: 40px 25px;
             width: 100%;
             background: #1abc9c;
         }

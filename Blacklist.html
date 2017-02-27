@@ -16,21 +16,59 @@
         <header><img src="logo.png" height="50"/></header>
         <ul>
             <li><a href="index.html">Home</a></li>
+            <li>
+                <a href="#" class="dropbtn">Track</a>
+            </li>
+            <li>
+                <a href="Cal2.html" class="dropbtn">Deadlines</a>
+            </li>
             <li style="float:right"><a href="javascript:window.open('Help.html', 'Help', 'width=500,height=500');">Help</a></li>
         </ul>
-            <h1>Blacklist</h1>
-        <hr />
-            <table id="blacklistTable">
-                <tr>
-                    <th>Sites</th>
-                    <th>End Date</th>
-                </tr>
-                <tr>
-                    <td><button class="tablebtn" onclick="myFunction()">Add New <i class="fa fa-plus-square"></i></button></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
+
+        <div id="container">
+            <div id="inputSide">
+                <div class="addDescription">
+                    <h4>To add to the list, fill out the fields below and press Add New!</h4>
+                </div>
+                <div class="addFields">
+                    <div id="fields">
+                        <p>Enter Site Name: </p>
+                        <input id="sName" type="text" />
+                        <p>Enter the URL: </p>
+                        <input id="sURL" type="text" />
+                        <p>Enter the desired end date: </p>
+                        <input id="sDate" type="date" />
+                    </div>
+                </div>
+            </div>
+            <div id="listSide">
+                <h1>Blacklist</h1>
+                <hr />
+                
+                <table id="blacklistTable">
+                    <tr>
+                        <th>Site Names</th>
+                        <th>End Date</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td><button class="tablebtn" onclick="myFunction()">Add New <i class="fa fa-plus-square"></i></button></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+                <div class="alert" id="alert">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <strong>Error!</strong> You must fill out all the fields!
+                </div>
+                <div class="alert warning" id="warn">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <strong>Warning!</strong> You are about to delete a site. This cannot be undone, click the trash icon again to confirm.
+                </div>
+                
+            </div>
+            
+        </div>
     </body>
 </html>
 
@@ -39,35 +77,115 @@
         var url;
         var Date;
         var place = 1;
+        var delTimes = 0;
+        var curNum;
         function myFunction() {
             addStuff();
-            var table = document.getElementById("blacklistTable");
-            var row = table.insertRow(place);
-            var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(1);
-            var cell3 = row.insertCell(2);
-            cell1.innerHTML = website;
-            cell2.innerHTML = Date;
-            cell3.innerHTML = '<button class =\"trash"\ onclick=\"remove(' + place + ')"\><i class=\"fa fa-trash"\></i></button>';
-            cell3.id = 'trash';
-            place++;
+
+            if (website.length > 0 && url.length > 0) {
+                var table = document.getElementById("blacklistTable");
+                var row = table.insertRow(place);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                cell1.innerHTML = website;
+                cell2.innerHTML = Date;
+                cell3.innerHTML = '<button class =\"trash"\ onclick=\"remove(' + place + ')"\><i class=\"fa fa-trash"\></i></button>';
+                cell3.id = 'trash';
+            }
+            else {
+                document.getElementById("alert").style.display = "block";
+            }
         }
 
         function addStuff() {
 
-            website = prompt("Please enter site name", "Name");
+           /* website = prompt("Please enter site name", "Name");
             url = prompt("Please enter site URL", "URL");
-            Date = prompt("Please enter desired end date", "MM/DD/YY");
+            Date = prompt("Please enter desired end date", "MM/DD/YY");*/
+
+            website = document.getElementById("sName").value;
+            url = document.getElementById('sURL').value;
+            Date = document.getElementById('sDate').value;
         }
 
         function remove(num) {
-            document.getElementById("blacklistTable").deleteRow(num);
+            if (delTimes == 0) {
+                document.getElementById("warn").style.display = "block";
+                delTimes++;
+                curNum = num;
+            }
+            else {
+                document.getElementById("warn").style.display = "none";
+                if (num == curNum) {
+                    document.getElementById("blacklistTable").deleteRow(num); 
+                }
+                delTimes = 0;
+            }
         }
     </script>
+
+
+
+
 
 <style>
     .trash {
         color: red;
-        border-radius: 5px;
+        border:none;
+        background-color:none;
     }
+
+    #container{
+        width:100%;
+        display:block;
+    }
+
+    #inputSide{
+        width: 20%;
+        float:left;
+        padding:5px;
+    }
+    #listSide{
+        width:80%;
+        float:left;
+    }
+
+    .addDescription{
+        border:ridge;
+    }
+
+    .addFields{
+        border: ridge;
+        padding:5px;
+    }
+    .alert {
+        padding: 20px;
+        background-color: #f44336;
+        color: white;
+        opacity: 1;
+        transition: opacity 0.6s;
+        margin-bottom: 15px;
+        display: none;
+    }
+
+
+        .alert.warning {
+            background-color: #ff9800;
+        }
+
+    .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+        .closebtn:hover {
+            color: black;
+        }
 </style>

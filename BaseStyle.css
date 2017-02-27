@@ -7,7 +7,7 @@ header {
     font-size: 45px;
     text-align: center;
     color: ghostwhite;
-    background-color: black;
+    background:linear-gradient(#0a0a0a,#333);
     width: 100%;
 }
 
@@ -110,6 +110,7 @@ table {
     width: 100%;
     background-color: #f0f3f4;
     font-size: 20px;
+    table-layout:fixed;
 }
 
 td, th {
