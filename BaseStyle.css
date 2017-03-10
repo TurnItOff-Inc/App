@@ -16,7 +16,7 @@ header {
 }
 
 .parallax{
-    background-image: url("turn-it-off.png");
+    background-image: url("TurnItOff.gif");
     min-height: 760px; 
     background-attachment: fixed;
     background-position: center;
